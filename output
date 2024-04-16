@@ -1,0 +1,27 @@
+import requests
+
+# Function to check the status of a Jenkins service
+def check_service(url):
+    try:
+        response = requests.get(url)
+        if response.status_code == 200:
+            return f"{url}: Running\n"
+        else:
+            return f"{url}: Not Running\n"
+    except requests.exceptions.RequestException:
+        return f"{url}: Not Reachable\n"
+
+# Read URLs from a file
+def read_urls(file_path):
+    with open(file_path, "r") as file:
+        return file.read().splitlines()
+
+def main():
+    urls = read_urls("jenkins_urls.txt")
+    with open("jenkins_health_check_result.txt", "w") as output_file:
+        for url in urls:
+            result = check_service(url)
+            output_file.write(result)
+
+if __name__ == "__main__":
+    main()
