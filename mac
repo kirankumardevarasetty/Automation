@@ -1,0 +1,59 @@
+```python
+import requests
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
+# Function to check the status of a Jenkins service
+def check_service(url):
+    try:
+        response = requests.get(url)
+        if response.status_code == 200:
+            return True
+        else:
+            return False
+    except requests.exceptions.RequestException:
+        return False
+
+# Function to send email alert
+def send_email(receiver_email, subject, body):
+    sender_email = "your_email@example.com"
+    password = "your_password"
+
+    message = MIMEMultipart()
+    message["From"] = sender_email
+    message["To"] = receiver_email
+    message["Subject"] = subject
+
+    message.attach(MIMEText(body, "plain"))
+
+    with smtplib.SMTP_SSL("smtp.example.com", 465) as server:
+        server.login(sender_email, password)
+        server.sendmail(sender_email, receiver_email, message.as_string())
+
+# Read URLs from a file
+def read_urls(file_path):
+    with open(file_path, "r") as file:
+        return file.read().splitlines()
+
+def main():
+    urls = read_urls("jenkins_urls.txt")
+    for url in urls:
+        if not check_service(url):
+            send_email("your_email@example.com", "Jenkins Service Alert", f"The Jenkins service at {url} is not running.")
+
+if __name__ == "__main__":
+    main()
+```
+1. Open a text editor and paste the following Python script:
+2. Save the file with a `.py` extension, for example, `jenkins_health_check.py`.
+
+3. Create a text file named `jenkins_urls.txt` in the same directory as the script. Put each Jenkins URL on a separate line in this file.
+
+4. Open Terminal on your Mac.
+
+5. Navigate to the directory where you saved the script and the `jenkins_urls.txt` file.
+
+6. Run the script by typing `python jenkins_health_check.py` and pressing Enter.
+
+The script will check the status of each Jenkins URL listed in `jenkins_urls.txt` and send an email alert if any of the services are not running. Make sure to replace `"your_email@example.com"`, `"your_password"`, and `"smtp.example.com"` with your email credentials and SMTP server details.
