@@ -1,0 +1,25 @@
+ 1. Monitoring and Incident Management:
+   *"Can you describe a time when you were involved in resolving a production incident? How did you contribute to minimizing downtime, and what steps did you take post-incident to improve Mean Time to Detect (MTTD) and Mean Time to Repair (MTTR)?"*
+   
+   Purpose: This question evaluates the candidate's experience in real-world incident handling and their proactive approach to improving system reliability.
+
+ 2. Automation of Toil:
+   *"In your previous roles, how have you identified and eliminated repetitive manual tasks (toil) through automation? Can you provide specific examples of tools or processes you've implemented to reduce manual effort?"*
+   
+   Purpose: SREs focus on automating tasks to reduce operational overhead. This question tests the candidate's experience with automation and their understanding of SRE principles.
+
+ 3. CI/CD Pipeline and Release Management:
+   *"What experience do you have in designing and managing CI/CD pipelines? How do you ensure smooth, automated deployments while minimizing risks to production environments?"*
+   
+   Purpose: Assess the candidate's expertise in building robust pipelines and automating release management to support continuous delivery and integration.
+
+ 4. Infrastructure as Code (IaC) and Cloud Experience:
+   *"How have you applied Infrastructure as Code (IaC) principles in previous roles using tools like Terraform, Chef, or Ansible? How do you ensure that infrastructure changes are version-controlled and scalable, especially in cloud environments like GCP or OpenShift?"*
+   
+   Purpose: This question gauges the candidate's practical experience with IaC and their understanding of managing cloud infrastructure.
+
+ 5. Collaboration and Cross-functional Work:
+   *"SRE roles often require collaboration with various teams, including software engineers, security engineers, and product teams. Can you share an example of how you've worked cross-functionally to solve a complex problem or improve service reliability?"*
+   
+   Purpose: Collaboration is key for an SRE. This question helps determine the candidate's ability to work effectively across teams and foster a culture of reliability and continuous improvement.
+
